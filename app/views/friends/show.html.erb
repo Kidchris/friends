@@ -1,0 +1,30 @@
+<br/>
+<br/>
+
+<div class="card col-sm-10">
+  <div class="card-body">
+    <h5 class="card-title ">
+      First_name :: <strong> <%= @friend.First_name %> </strong>
+      <br/>Last_name :: <strong><%= @friend.Last_name %></strong>
+    </h5>
+    <br/>
+    <hr/>
+    <h6 class="card-text text-center">
+      <%= @friend.Email %> ||
+      <%= @friend.Facebook %> ||
+      <%= @friend.Who_is %>||
+      <br/>
+      |Member Since :: <%= @friend[:created_at] %>|
+      <br/>
+      <%if @friend[:updated_at].class != NilClass and (@friend[:created_at] != @friend[:updated_at]) %>
+      <%="|Status Updated at :: " + @friend[:updated_at].to_s.split[0]+" Hour : "+ @friend[:updated_at].to_s.split[1] %>|
+      <%end%>
+    </h6>
+    <br/>
+    <br/>
+    <%= link_to "Edit", edit_friend_path(@friend), class: "btn btn-secondary" %> |
+    <%= link_to "Back", friends_path, class: "btn btn-secondary" %>
+  </div>
+</div>
+
+

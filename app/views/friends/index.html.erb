@@ -1,0 +1,33 @@
+<br/>
+<br/>
+You have a total of : <%= @friends.count%> Friends
+<table class="table table-striped table-hover table-bordered table-responsive border-info">
+    <thead class="table-dark">
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Facebook</th>
+      <th>Description</th>
+      <th colspan="3">Features</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td> <u><%= friend.id%></u> :: <%= friend.First_name %></td>
+        <td><%= friend.Last_name %></td>
+        <td><%= friend.Email %></td>
+        <td><%= friend.Facebook %></td>
+        <td><%= friend.Who_is %></td>
+        <td><%= link_to "Show", friend %></td>
+        <td><%= link_to "Edit", edit_friend_path(friend) %></td>
+        <td><%= link_to "Destroy", friend, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+
+<%= link_to "New Friend", new_friend_path, class: "btn btn-secondary" %>
